@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
@@ -17,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	body {
 		min-height: 100vh;
+		margin: 0;
 	}
 
 	/* Disable hyphenation in links */
