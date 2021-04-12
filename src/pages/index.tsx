@@ -45,20 +45,19 @@ const Home: NextPage = () => {
           width: "$full",
           height: "$full",
           bg: "$blueGray.50",
-          display: "grid",
-          placeContent: "center",
+          pt: "$7",
         }}
       >
         <Stack
           as="section"
           gap={["$3", null, null, "$5"]}
-          sx={{ maxWidth: "$max", px: "$4" }}
+          sx={{ maxWidth: "$max", mx: "auto", px: "$4" }}
           marginCollapse
         >
-          <Stack gap="$1">
+          <Stack gap="$3">
             <Heading level={1}>Baba Booey!</Heading>
-            <Stack gap="$3" direction={["column", null, "row"]}>
-              <Text variant="$base" sx={{ color: "$blueGray.400" }}>
+            <Stack direction={["column", null, "row"]} gap="$3">
+              <Text sx={{ color: "$blueGray.400" }} variant="$base">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Adipiscing diam donec adipiscing tristique risus nec feugiat in.
@@ -75,7 +74,27 @@ const Home: NextPage = () => {
                 nulla. Lacus sed viverra tellus in hac habitasse platea dictumst
                 vestibulum.
               </Text>
-              <Text variant="$base" sx={{ color: "$blueGray.400" }}>
+              <Text sx={{ color: "$blueGray.400" }} variant="$base">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Adipiscing diam donec adipiscing tristique risus nec feugiat in.
+                Est ullamcorper eget nulla facilisi etiam dignissim diam. Sed
+                odio morbi quis commodo odio. Mattis pellentesque id nibh tortor
+                id. Enim nunc faucibus a pellentesque sit amet porttitor eget
+                dolor. Aliquet enim tortor at auctor urna nunc id cursus metus.
+                Facilisi nullam vehicula ipsum a arcu. Sed ullamcorper morbi
+                tincidunt ornare massa eget egestas. Faucibus scelerisque
+                eleifend donec pretium vulputate. Aenean pharetra magna ac
+                placerat vestibulum lectus mauris. Molestie nunc non blandit
+                massa enim nec dui. Velit scelerisque in dictum non consectetur
+                a erat. Consequat interdum varius sit amet mattis vulputate enim
+                nulla. Lacus sed viverra tellus in hac habitasse platea dictumst
+                vestibulum.
+              </Text>
+            </Stack>
+            <Stack gap="$1">
+              <Heading level={3}>Tata Toothey</Heading>
+              <Text sx={{ color: "$blueGray.400" }} variant="$base">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Adipiscing diam donec adipiscing tristique risus nec feugiat in.
@@ -98,10 +117,10 @@ const Home: NextPage = () => {
             <Heading level={4} sx={{ fontWeight: "$normal" }}>
               minColumnWidth:
             </Heading>
-            <Grid as="section" minColumnWidth="$64" gap="$3">
+            <Grid as="section" gap="$3" minColumnWidth="$64">
               {Array.from({ length: 4 }).map((item, index) => (
                 // eslint-disable-next-line react/no-array-index-key
-                <Box key={index} sx={cardStyle}>
+                <Box key={index} sx={{ ...cardStyle, textAlign: "center" }}>
                   {`Card ${index + 1}`}
                 </Box>
               ))}
@@ -116,7 +135,12 @@ const Home: NextPage = () => {
                 <Box
                   // eslint-disable-next-line react/no-array-index-key
                   key={index}
-                  sx={{ ...cardStyle, bg: "$red.200", color: "$red.900" }}
+                  sx={{
+                    ...cardStyle,
+                    bg: "$red.200",
+                    color: "$red.900",
+                    textAlign: "center",
+                  }}
                 >
                   {`Card ${index + 1}`}
                 </Box>

@@ -8,7 +8,7 @@ import { AsProps, SpaceProp } from "./types";
 
 type Direction = "column" | "row";
 
-interface StackProps extends BoxProps {
+export interface StackProps extends BoxProps {
   /** Spacing between items */
   gap: SpaceProp;
   /** Direction: horizontal (`row`) or vertical (`column`) */
@@ -59,7 +59,7 @@ const StackBase = styled(Box)<StackProps>(
   })
 );
 
-export const Stack = forwardRef<any, StackProps & AsProps>(
+export const Stack = forwardRef<HTMLDivElement, StackProps & AsProps>(
   (
     {
       as,
@@ -78,10 +78,10 @@ export const Stack = forwardRef<any, StackProps & AsProps>(
     return (
       <StackBase
         as={as}
-        ref={ref}
-        gap={gap}
-        direction={fd}
         className={className}
+        direction={fd}
+        gap={gap}
+        ref={ref}
         sx={{ display: marginCollapse ? "block" : "flex", ...sx }}
       >
         {children}

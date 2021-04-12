@@ -19,6 +19,10 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "no-console": ["error", { allow: ["warn", "error"] }],
     quotes: ["error", "double"],
+    "react/jsx-sort-props": [
+      "error",
+      { callbacksLast: true, shorthandLast: true },
+    ],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {

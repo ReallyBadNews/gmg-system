@@ -454,7 +454,7 @@ const headingBaseStyles = {
 
 const textBaseStyles = {
   // color: "inherit",
-  fontFamily: "$openSans",
+  // fontFamily: "$openSans",
   // fontWeight: "$normal",
   lineHeight: "$normal",
   letterSpacing: "$normal",
@@ -499,7 +499,7 @@ const zIndices = {
   $auto: "auto",
 };
 
-export default {
+const theme = {
   // Base font size (applied to body)
   baseFontSize: "1em", // 1em = 16px
   blockMarginBottom: space.$3,
@@ -576,4 +576,118 @@ export default {
     $xsm: { ...textBaseStyles },
     $xxsm: { ...textBaseStyles },
   },
-} as const;
+  buttonStyles: {
+    $primary: {
+      fontFamily: "$gibson",
+      fontSize: "$2",
+      lineHeight: "$none",
+      fontWeight: "$semibold",
+      color: "$blue.50",
+      backgroundColor: "$blue.500",
+      paddingX: "$3",
+      borderRadius: "$md",
+      "&:hover": {
+        backgroundColor: "$blue.600",
+      },
+      "&:focus-visible": {
+        boxShadow: "$primaryButtonFocus",
+      },
+      "&:active": {
+        backgroundColor: "$blue.700",
+      },
+    },
+    $red: {
+      fontFamily: "$gibson",
+      fontSize: "$2",
+      lineHeight: "$none",
+      fontWeight: "$semibold",
+      color: "$red.50",
+      backgroundColor: "$red.500",
+      paddingX: "$3",
+      borderRadius: "$md",
+      "&:hover": {
+        backgroundColor: "$red.600",
+      },
+      "&:focus-visible": {
+        boxShadow: "$redButtonFocus",
+      },
+      "&:active": {
+        backgroundColor: "$red.700",
+      },
+    },
+    $orange: {
+      fontFamily: "$gibson",
+      fontSize: "$2",
+      lineHeight: "$none",
+      fontWeight: "$semibold",
+      color: "$orange.50",
+      backgroundColor: "$orange.400",
+      paddingX: "$3",
+      borderRadius: "$md",
+      "&:hover": {
+        backgroundColor: "$orange.500",
+      },
+      "&:focus-visible": {
+        boxShadow: "$orangeButtonFocus",
+      },
+      "&:active": {
+        backgroundColor: "$orange.600",
+      },
+    },
+    $gray: {
+      fontFamily: "$gibson",
+      fontSize: "$1",
+      fontWeight: "$medium",
+      letterSpacing: "$wide",
+      color: "$blueGray.500",
+      backgroundColor: "$blueGray.200",
+      borderRadius: "$default",
+      px: "$3",
+      "&:hover": {
+        backgroundColor: "$blueGray.300",
+      },
+      "&:focus-visible": {
+        boxShadow: "$grayButtonFocus",
+      },
+      "&:active": {
+        backgroundColor: "$blueGray.400",
+        color: "$blueGray.700",
+        boxShadow: "$grayButtonFocus",
+      },
+    },
+    $white: {
+      fontFamily: "$gibson",
+      fontSize: "$1",
+      fontWeight: "$regular",
+      letterSpacing: "$wide",
+      color: "$blueGray.900",
+      backgroundColor: "$white",
+      borderRadius: "$default",
+      border: "1px solid",
+      borderColor: "$blueGray.300",
+      px: "$3",
+      "&:focus-visible": {
+        boxShadow: "$primaryButtonFocus",
+      },
+      "&:active": {
+        boxShadow: "$primaryButtonFocus",
+      },
+    },
+    $ghost: {
+      fontFamily: "$gibson",
+      borderRadius: "$default",
+    },
+    $ghostWhite: {
+      fontFamily: "$gibson",
+      fontSize: "$2",
+      fontWeight: "$semibold",
+      color: "$white",
+      borderRadius: "$default",
+      "&:focus": {
+        boxShadow: "$grayButtonFocus",
+      },
+    },
+  },
+};
+
+export default theme;
