@@ -20,7 +20,3 @@ export const Text = styled(Box)<TextProps>(
     variants: { _: {} },
   })
 );
-
-Text.defaultProps = {
-  variant: "$base",
-};

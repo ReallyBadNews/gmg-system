@@ -21,11 +21,12 @@ export const Icon: FC<IconProps> = ({
   ...rest
 }) => {
   return (
-    <Box {...rest} sx={{ display: "inline-flex", ...sx }}>
+    <Box sx={{ display: "inline-flex", ...sx }}>
       <FontAwesomeIcon
         fixedWidth={fixedWidth}
         icon={icon}
         listItem={listItem}
+        {...rest}
       />
     </Box>
   );

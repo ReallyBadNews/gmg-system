@@ -1,6 +1,8 @@
+import { faCheckCircle, faTimesCircle } from "@fortawesome/pro-solid-svg-icons";
 import { NextPage } from "next";
 import Head from "next/head";
 import { Box } from "../components/Box";
+import { Button } from "../components/Button";
 import { Grid } from "../components/Grid";
 import { Heading } from "../components/Heading";
 import { Stack } from "../components/Stack";
@@ -45,7 +47,7 @@ const Home: NextPage = () => {
           width: "$full",
           height: "$full",
           bg: "$blueGray.50",
-          pt: "$7",
+          py: "$7",
         }}
       >
         <Stack
@@ -54,7 +56,7 @@ const Home: NextPage = () => {
           sx={{ maxWidth: "$max", mx: "auto", px: "$4" }}
           marginCollapse
         >
-          <Stack gap="$3">
+          <Stack direction={["row", "column"]} gap="$6">
             <Heading level={1}>Baba Booey!</Heading>
             <Stack direction={["column", null, "row"]} gap="$3">
               <Text sx={{ color: "$blueGray.400" }} variant="$base">
@@ -146,6 +148,17 @@ const Home: NextPage = () => {
                 </Box>
               ))}
             </Grid>
+          </Stack>
+          <Stack direction="row" gap="$2">
+            <Button iconRight={faCheckCircle} size="rg" variant="$primary">
+              Hello world
+            </Button>
+            <Button iconLeft={faTimesCircle} size="sm" variant="$red">
+              Cancel
+            </Button>
+            <Button size="rg" variant="$gray">
+              Cancel
+            </Button>
           </Stack>
         </Stack>
       </Box>

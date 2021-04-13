@@ -2,12 +2,13 @@
 /* eslint-disable import/prefer-default-export */
 
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { forwardRef } from "react";
+import { forwardRef, ReactNode } from "react";
 import styled, { DefaultTheme } from "styled-components";
 import { ResponsiveValue, variant } from "styled-system";
 import { Box } from "./Box";
 import { Icon } from "./Icon";
 import { Text } from "./Text";
+import { Spinner } from "./Spinner";
 import { AsProps } from "./types";
 import { SxProp } from "./utils/sx";
 
@@ -16,19 +17,18 @@ type Props = SxProp & AsProps;
 export interface ButtonProps extends Props {
   variant: ResponsiveValue<keyof DefaultTheme["buttonStyles"]>;
   size: "sm" | "rg" | "lg";
+  children: ReactNode;
   className?: string;
   onClick?: () => void;
   iconLeft?: IconProp;
   iconRight?: IconProp;
   loading?: boolean;
   spinner?: "balls" | "circle";
+  disabled?: boolean;
 }
 
 const BaseButton = styled(Box)<ButtonProps>(
   {
-    appearance: "none",
-    outline: "none",
-    border: "none",
     alignItems: "center",
     transition: "all 300ms cubic-bezier(0.25, 0.8, 0.25, 1)",
   },
@@ -53,6 +53,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loading,
       spinner = "balls",
       sx: sxProp,
+      disabled,
       ...rest
     },
     ref
@@ -66,7 +67,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           sx={{
             display: "flex",
             justifyContent: "center",
-            fontSize: ["$0", "$1", "$2"],
+            fontSize: ["$0", "$1"],
+            px: "$2",
             py: "$1",
             borderRadius: "$sm",
             cursor: "pointer",
@@ -76,16 +78,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           onClick={onClick}
           {...rest}
         >
-          {iconLeft && (
-            <Icon
-              icon={iconLeft}
-              sx={{ mr: "$2", maxHeight: "$4" }}
-              fixedWidth
-            />
-          )}
+          {iconLeft && <Icon icon={iconLeft} sx={{ mr: "$1" }} fixedWidth />}
           {loading ? (
             <Box sx={{ minWidth: "$20" }}>
-              <GMGSpinner spinner={spinner} active />
+              <Spinner spinner={spinner} />
             </Box>
           ) : (
             <Text as="span" sx={{ color: "inherit", fontFamily: "$gibson" }}>
@@ -93,11 +89,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             </Text>
           )}
           {iconRight && !loading && (
-            <Icon
-              icon={iconRight}
-              sx={{ ml: "$2", maxHeight: "$4" }}
-              fixedWidth
-            />
+            <Icon icon={iconRight} sx={{ ml: "$1" }} fixedWidth />
           )}
         </BaseButton>
       );
@@ -122,16 +114,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           onClick={onClick}
           {...rest}
         >
-          {iconLeft && (
-            <Icon
-              icon={iconLeft}
-              sx={{ mr: "$2", maxHeight: "$4" }}
-              fixedWidth
-            />
-          )}
+          {iconLeft && <Icon icon={iconLeft} sx={{ mr: "$1" }} fixedWidth />}
           {loading ? (
             <Box sx={{ minWidth: "$20" }}>
-              <GMGSpinner spinner={spinner} active />
+              <Spinner spinner={spinner} />
             </Box>
           ) : (
             <Text as="span" sx={{ color: "inherit", fontFamily: "$gibson" }}>
@@ -139,11 +125,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             </Text>
           )}
           {iconRight && !loading && (
-            <Icon
-              icon={iconRight}
-              sx={{ ml: "$2", maxHeight: "$4" }}
-              fixedWidth
-            />
+            <Icon icon={iconRight} sx={{ ml: "$1" }} fixedWidth />
           )}
         </BaseButton>
       );
@@ -158,8 +140,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           sx={{
             display: "flex",
             justifyContent: "center",
-            fontSize: ["$1", null, "$2"],
-            p: "$3",
+            fontSize: ["$1", null, "$3"],
+            py: "$3",
+            px: "$5",
             cursor: "pointer",
             ...sxProp,
           }}
@@ -167,16 +150,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           onClick={onClick}
           {...rest}
         >
-          {iconLeft && (
-            <Icon
-              icon={iconLeft}
-              sx={{ mr: "$2", maxHeight: "$4" }}
-              fixedWidth
-            />
-          )}
+          {iconLeft && <Icon icon={iconLeft} sx={{ mr: "$2" }} fixedWidth />}
           {loading ? (
             <Box sx={{ minWidth: "$20" }}>
-              <GMGSpinner spinner={spinner} active />
+              <Spinner spinner={spinner} />
             </Box>
           ) : (
             <Text as="span" sx={{ color: "inherit", fontFamily: "$gibson" }}>
@@ -184,11 +161,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             </Text>
           )}
           {iconRight && !loading && (
-            <Icon
-              icon={iconRight}
-              sx={{ ml: "$2", maxHeight: "$4" }}
-              fixedWidth
-            />
+            <Icon icon={iconRight} sx={{ ml: "$2" }} fixedWidth />
           )}
         </BaseButton>
       );
@@ -254,7 +227,7 @@ Button.defaultProps = {
 //             )}
 //             {loading ? (
 //               <Box sx={{ minWidth: "$20" }}>
-//                 <GMGSpinner spinner={spinner} active />
+//                 <Spinner spinner={spinner} active />
 //               </Box>
 //             ) : (
 //               <Text as="span" sx={{ color: "inherit" }}>

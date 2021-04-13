@@ -46,7 +46,6 @@ const Template: Story<StackProps> = (args) => (
 );
 
 export const Default = Template.bind({});
-
 Default.args = {
   gap: "$3",
 };
